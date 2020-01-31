@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>paperIB</RootNamespace>
     <AssemblyName>paperIB</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,7 +47,6 @@
     <Reference Include="SmartQuant" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilterClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PaperIB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +60,9 @@
       <Name>DCEMDStrategy</Name>
       <Project>{DBB48CB9-15EE-463D-88C9-0E146F223C2C}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

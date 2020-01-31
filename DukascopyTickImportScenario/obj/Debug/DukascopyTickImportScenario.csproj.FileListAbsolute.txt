@@ -1,0 +1,25 @@
+C:\Users\Trading\Documents\OpenQuant 2014\Solutions\HFBarsXover\DukascopyTickImportScenario\bin\Debug\DukascopyTickImportScenario.exe
+C:\Users\Trading\Documents\OpenQuant 2014\Solutions\HFBarsXover\DukascopyTickImportScenario\bin\Debug\DukascopyTickImportScenario.pdb
+C:\Users\Trading\Documents\OpenQuant 2014\Solutions\HFBarsXover\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.csprojResolveAssemblyReference.cache
+C:\Users\Trading\Documents\OpenQuant 2014\Solutions\HFBarsXover\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.exe
+C:\Users\Trading\Documents\OpenQuant 2014\Solutions\HFBarsXover\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.pdb
+C:\Users\Trading\Documents\OpenQuant 2014\Solutions\HFBarsXover\DukascopyTickImportScenario\bin\Debug\Common.dll
+C:\Users\Trading\Documents\OpenQuant 2014\Solutions\HFBarsXover\DukascopyTickImportScenario\bin\Debug\Common.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.csprojAssemblyReference.cache
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\DukascopyTickImportScenario.exe.config
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\DukascopyTickImportScenario.exe
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\DukascopyTickImportScenario.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\Common.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\SmartQuant.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\MySql.Data.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\Google.Protobuf.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\Renci.SshNet.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\Common.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\MySql.Data.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\Google.Protobuf.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\bin\Debug\Renci.SshNet.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.csprojAssemblyReference.cache
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.csproj.CopyComplete
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.exe
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DukascopyTickImportScenario\obj\Debug\DukascopyTickImportScenario.pdb

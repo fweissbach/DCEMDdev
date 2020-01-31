@@ -1,0 +1,5 @@
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\CMXdev\bin\Debug\CMXdev.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\CMXdev\bin\Debug\CMXdev.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\CMXdev\obj\Debug\CMXdev.csprojAssemblyReference.cache
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\CMXdev\obj\Debug\CMXdev.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\CMXdev\obj\Debug\CMXdev.pdb

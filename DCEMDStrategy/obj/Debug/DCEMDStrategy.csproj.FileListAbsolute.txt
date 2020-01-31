@@ -1,0 +1,69 @@
+E:\oldHP\Users\Trading\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.dll
+E:\oldHP\Users\Trading\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.pdb
+E:\oldHP\Users\Trading\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.dll
+E:\oldHP\Users\Trading\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.pdb
+E:\oldHP\Users\Trading\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.csprojResolveAssemblyReference.cache
+E:\oldHP\Users\Trading\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.dll
+E:\oldHP\Users\Trading\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\OneDrive\DCEMD model\Data\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\OneDrive\DCEMD model\Data\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\OneDrive\DCEMD model\Data\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.dll
+C:\Users\wbf2304\OneDrive\DCEMD model\Data\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.pdb
+C:\Users\wbf2304\OneDrive\DCEMD model\Data\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.csprojResolveAssemblyReference.cache
+C:\Users\wbf2304\OneDrive\DCEMD model\Data\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\OneDrive\DCEMD model\Data\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\OneDrive\DCEMD model\SmartQuant\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\OneDrive\DCEMD model\SmartQuant\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\OneDrive\DCEMD model\SmartQuant\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.dll
+C:\Users\wbf2304\OneDrive\DCEMD model\SmartQuant\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.pdb
+C:\Users\wbf2304\OneDrive\DCEMD model\SmartQuant\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\OneDrive\DCEMD model\SmartQuant\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\OneDrive\DCEMD model\SmartQuant\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.csprojResolveAssemblyReference.cache
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.dll
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\bin\Debug\Common.pdb
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.csprojAssemblyReference.cache
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.csproj.CoreCompileInputs.cache
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.csproj.CopyComplete
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMD\DCEMDStrategy\obj\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\DCEMDStrategy.pdb
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Common.dll
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Common.pdb
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.csprojAssemblyReference.cache
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.csproj.CoreCompileInputs.cache
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.csproj.CopyComplete
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.dll
+C:\Users\wbf2304\Documents\OpenQuant 2014\Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\DCEMDStrategy.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\DCEMDStrategy.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Common.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\MySql.Data.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Google.Protobuf.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Renci.SshNet.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Common.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\MySql.Data.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Google.Protobuf.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\bin\Debug\Renci.SshNet.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.csprojAssemblyReference.cache
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.csproj.CopyComplete
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMDdev\DCEMDStrategy\obj\Debug\DCEMDStrategy.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\obj\Debug\DCEMDStrategy.csprojAssemblyReference.cache
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\DCEMDStrategy.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\DCEMDStrategy.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\Common.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\MySql.Data.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\Google.Protobuf.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\Renci.SshNet.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\Common.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\MySql.Data.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\Google.Protobuf.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\bin\Debug\Renci.SshNet.xml
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\obj\Debug\DCEMDStrategy.csproj.CopyComplete
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\obj\Debug\DCEMDStrategy.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\DCEMDStrategy\obj\Debug\DCEMDStrategy.pdb

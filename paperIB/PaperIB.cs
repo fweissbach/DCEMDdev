@@ -6,11 +6,12 @@ namespace OpenQuant
 {
     public class PaperIB : Scenario
     {
-        string symbols = "EURUSD,GBPUSD,USDJPY,EURGBP,USDCHF,AUDJPY,AUDUSD,EURJPY";
+        string symbols = "EURUSD,GBPUSD,EURCHF,EURGBP,USDJPY";
         long Lambda = 10;
         double Threshold = 0.67;
-        double Cash = 100000;
-        bool tradingDisabled = false; // set to true for trading sessions
+        double Cash = 100000; // USD 100k position limit
+        bool UseStopLoss = true;  // IMF based StopLoss
+        double SLlevel = 20.0; // IMF base stoploss level
 
         // closeMode = 0:  cross of 0 closes the position
         // closeMode = 1:  long:crossFromBelow(envU) and short:crossFromAbove(envL) closes trade
@@ -52,23 +53,30 @@ namespace OpenQuant
             strategy.DataProvider = provider as IDataProvider;
             strategy.ExecutionProvider = provider as IExecutionProvider;
 
-            // what to do ona restart
-            // •	None – do nothing
-            // •	Load – load execution messages and restore portfolios and orders before strategy run
-            // •	Save – save portfolio tree and execution messages during strategy run
-            // •	Full – load and save
-            StrategyManager.Persistence = StrategyPersistence.Save;
+            AccountDataSnapshot accData = AccountDataManager.GetSnapshot(4, 4);
 
-            framework.CurrencyConverter = new MyCurrencyConverter(this, instruments, false);
+
+            IBCommission ibCommission = new IBCommission();
+            ExecutionSimulator.CommissionProvider = ibCommission;
+
+            // what to do ona restart
+            // ï¿½	None ï¿½ do nothing
+            // ï¿½	Load ï¿½ load execution messages and restore portfolios and orders before strategy run
+            // ï¿½	Save ï¿½ save portfolio tree and execution messages during strategy run
+            // ï¿½	Full ï¿½ load and save
+            // StrategyManager.Persistence = StrategyPersistence.Save;
+
+            framework.CurrencyConverter = new MyCurrencyConverter(this, instruments, true);
             
             // Set event filter.
-			EventManager.Filter = new Level2EventFilter(framework);
+			EventManager.Filter = new IBForexFilter(framework);
             
             strategy.SetParameter("Envelope", Threshold * Lambda);
             strategy.SetParameter("Lambda", Lambda);
             strategy.SetParameter("Cash", Cash);
             strategy.SetParameter("CloseMode", CloseMode);
-            strategy.SetParameter("TradingDisabled", tradingDisabled);
+            strategy.SetParameter("UseStopLoss", UseStopLoss);
+            strategy.SetParameter("SLlevel", SLlevel);
 
             // Live stage
             Console.WriteLine("Run in Live mode.");
@@ -77,6 +85,7 @@ namespace OpenQuant
         }
     }
 }
+
 
 
 
