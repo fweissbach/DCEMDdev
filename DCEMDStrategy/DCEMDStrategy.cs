@@ -15,6 +15,7 @@ namespace OpenQuant
 		private double lastQuotePrice;
 		private double lastImfPrice;
 		private IMFPred imfPred;
+        private Order currOrder;
 		private string orderFile, orderSession;
 		public byte BaseCcy = CurrencyId.USD;
 
@@ -25,7 +26,7 @@ namespace OpenQuant
 
         
 		[Parameter]
-		public bool Locked = false;
+		public bool OrderLockedOverride = false;
 		// To avoid duplicate trades whilean order has not been confirmed yet
 
 		[Parameter]
@@ -92,8 +93,7 @@ namespace OpenQuant
 			// Start the Strategy during a session
 			Portfolio.Account.Deposit(PositionLimit, Instrument.CCY1, "inital deposit",true);
 			InSession = true;
-			Locked = false;
-           
+         
 			// AddReminder(Clock.DateTime.Date.Add(SessionEnd));
 		}
 
@@ -167,35 +167,24 @@ namespace OpenQuant
 
 			int index = imf.Count - 1;
 
-			if (!InSession)
+            // InSession controlled by user
+            // out of session before & after midnight
+            // typical after 22:00 andd before 01:15
+			if (!InSession || imfTick.DateTime.TimeOfDay > SessionEnd || imfTick.DateTime.TimeOfDay < SessionStart)
 				return;
 
 			if (Bars.Count <= NrWarmup)
 				return;
 
+            if (IsLockedOrder(currOrder))
+                return;
 
-			// Compact trade logic
-			// if there is a long/short postion then close it if the opposite envelope or 0 is crossed
-			// if there is no position then open it if the envelope is crosses
-
-			if (imfTick.DateTime.TimeOfDay>SessionEnd || imfTick.DateTime.TimeOfDay<SessionStart)
-			{
-				//Console.WriteLine(Clock.DateTime.ToLongTimeString() + ":" + Instrument.Symbol + " Trade Signal outside session, current position:" + Position.GetSideAsString() + Position.Qty.ToString());
-				return;
-			}
-
-
-
-			if (Locked)
-			{
-				//   Console.WriteLine(Clock.DateTime.ToLongTimeString() + ":" + Instrument.Symbol + " Locked! " + Position.GetSideAsString() + Position.Qty.ToString());
-				return;
-			}
-
-			Cross highCross = imf.Crosses(envU, index);
+            // Compact trade logic
+            // if there is a long/short postion then close it if the opposite envelope or 0 is crossed
+            // if there is no position then open it if the envelope is crosses
+            Cross highCross = imf.Crosses(envU, index);
 			Cross lowCross = imf.Crosses(envL, index);
 			Cross zeroCross = imf.Crosses(0.0, index);
-
 
 
 			// handling of Long position
@@ -203,43 +192,32 @@ namespace OpenQuant
 			{
 				if (zeroCross == Cross.Above && CloseMode == 0)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Sell, Position.Qty, "closing@zero trade");
-					//   Sell(Instrument, Position.Qty, "closing@zero trade");
 				}
 				else if (highCross == Cross.Above && CloseMode == 1)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Sell, Position.Qty, "closing@envU trade");
-					// Sell(Instrument, Position.Qty, "closing@envU trade");
 				}
 				else if (UseStopLoss && imfTick.Price < -SLlevel)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Sell, Position.Qty, "Stoploss hit");
-					// Sell(Instrument, Position.Qty, "Stoploss hit");
 				}
 			}
-				// handling of Short position
+
+			// handling of Short position
 			else if (HasShortPosition())
 			{
 				if (zeroCross == Cross.Below && CloseMode == 0)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Buy, Position.Qty, "closing@zero trade");
-					// Buy(Instrument, Position.Qty, "closing@zero trade");
 				}
 				else if (lowCross == Cross.Below && CloseMode == 1)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Buy, Position.Qty, "closing@envL trade");
-					// Buy(Instrument, Position.Qty, "closing@envL trade");
 				}
 				else if (UseStopLoss && imfTick.Price > SLlevel)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Buy, Position.Qty, "Stoploss hit");
-					// Buy(Instrument, Position.Qty, "Stoploss hit");
 				}
 			}
 				// handling of No position
@@ -247,67 +225,52 @@ namespace OpenQuant
 			{
 				if (lowCross == Cross.Above)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Buy, PositionLimit, "opening trade");
-					// Buy(Instrument, PositionLimit, "opening trade");
 				}
 				else if (highCross == Cross.Below)
 				{
-					Locked = true;
 					SendLimitOrder(OrderSide.Sell, PositionLimit, "opening trade");
-					//  Sell(Instrument, PositionLimit, "opening trade");
 				}
 			}
 		}
 
+        protected Boolean IsLockedOrder(Order order)
+        {
+            if (order == null || OrderLockedOverride)
+                return false;
+
+
+            if (order.IsDone || order.IsRejected || order.IsCancelled)
+                return false;
+            else
+                return true;
+        }
 
 		protected void SendLimitOrder(OrderSide side,double qty, String text)
 		{
+
 			double ItmLimitFactor = 1.0 + ItmLimitBPS / 10000.0;
-			Order order;
 			if (side == OrderSide.Buy)
-				order = BuyLimitOrder(Instrument, qty, Math.Round(lastQuotePrice * ItmLimitFactor,(int)Instrument.TickSize), text);
+				currOrder = BuyLimitOrder(Instrument, qty, Math.Round(lastQuotePrice * ItmLimitFactor,(int)Instrument.TickSize), text);
 			else
-				order = SellLimitOrder(Instrument, qty, Math.Round(lastQuotePrice / ItmLimitFactor, (int)Instrument.TickSize), text);
+                currOrder = SellLimitOrder(Instrument, qty, Math.Round(lastQuotePrice / ItmLimitFactor, (int)Instrument.TickSize), text);
 
-			order.TimeInForce = TimeInForce.FOK;
+            currOrder.TimeInForce = TimeInForce.FOK;
 
-			// Avoiding partial fills (Currenex documentation); 
-			order.MinQty = order.Qty;
+            // Avoiding partial fills (Currenex documentation); 
+            currOrder.MinQty = currOrder.Qty;
 
-			Send(order);
+			Send(currOrder);
 		}
-		// avoid order duplication
-		// protected override void OnNewOrder(Order order)
-		// {
-		//     Locked = true;
-		//     base.OnNewOrder(order);
-		// }
+
+
 		protected override void OnOrderDone(Order order)
 		{
-			Locked = false;
 			//Util.SaveOrdersCSV(orderFile, order);
 			if (Mode != StrategyMode.Backtest)
 				Util.SaveOrdersMySQL(orderSession, order);
              
 			base.OnOrderDone(order);   
-		}
-
-		protected override void OnOrderExpired(Order order)
-		{
-			Locked = false;
-			base.OnOrderExpired(order);
-		}
-
-		protected override void OnOrderCancelled(Order order)
-		{
-			Locked = false;
-			base.OnOrderCancelled(order);
-		}
-
-		protected override void OnPendingNewOrder(Order order)
-		{
-			base.OnPendingNewOrder(order);
 		}
 
 		protected override void OnExecutionReport(ExecutionReport report)
@@ -317,15 +280,15 @@ namespace OpenQuant
 		}
 
 
-		protected override void OnPositionChanged(Position position)
-		{
-			//	if (Mode != StrategyMode.Backtest)
-			{
-			Log(position.Amount,"Position");
-			Log(position.UPnL, "uPnL");
-		}
-			base.OnPositionChanged(position);
-			}
+        protected override void OnPositionChanged(Position position)
+        {
+            //	if (Mode != StrategyMode.Backtest)
+            {
+                Log(position.Amount, "Position");
+                Log(position.UPnL, "uPnL");
+            }
+            base.OnPositionChanged(position);
+        }
 
 
 		protected override void OnFill(Fill fill)
