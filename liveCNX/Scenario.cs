@@ -6,8 +6,9 @@ namespace OpenQuant
 {
 	public class liveCNX : Scenario
 	{
-		string symbols = "AUDUSD,EURCHF,EURGBP,EURJPY,EURUSD,GBPUSD,USDCAD,USDCHF,USDJPY";
-		long Lambda = 10;
+        string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
+
+        long Lambda = 10;
 		double Threshold = 0.67;
 		double Cash = 50000; // EUR 500k position size and deposit
 		bool UseStopLoss = true;  // IMF based StopLoss

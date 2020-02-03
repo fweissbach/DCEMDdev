@@ -60,7 +60,7 @@ namespace OpenQuant
 		public int CloseMode = 1;
 
 		[Parameter]
-		public TimeSpan SessionStart = new TimeSpan(00, 05, 00);
+		public TimeSpan SessionStart = new TimeSpan(01, 15, 00);
 
 		[Parameter]
 		public TimeSpan SessionEnd = new TimeSpan(21, 58, 0);

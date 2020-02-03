@@ -14,7 +14,7 @@ namespace OpenQuant
         // string symbols = "EURUSD,EURCHF,USDJPY,GBPUSD,EURGBP,USDCHF";
 		// string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
 
-		string symbols = "AUDJPY"; //,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
+		string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
         DateTime startDateTime = 	new DateTime(2019, 10, 2, 3, 0, 0);
         DateTime endDateTime = 		new DateTime(2019, 12, 29, 5, 0, 0);
 //		DateTime endDateTime = 		new DateTime(2019, 12, 27, 18, 00, 0);
@@ -27,7 +27,7 @@ namespace OpenQuant
 
         // closeMode = 0:  cross of 0 closes the position
         // closeMode = 1:  long:crossFromBelow(envU) and short:crossFromAbove(envL) closes trade
-        int CloseMode = 0;
+        int CloseMode = 1;
 
         public Backtest2(Framework framework)
             : base(framework)
