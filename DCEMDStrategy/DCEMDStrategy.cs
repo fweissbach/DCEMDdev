@@ -201,7 +201,8 @@ namespace OpenQuant
 				else if (UseStopLoss && imfTick.Price < -SLlevel)
 				{
 					SendLimitOrder(OrderSide.Sell, Position.Qty, "Stoploss hit");
-				}
+                    OnStopHit();
+                }
 			}
 
 			// handling of Short position
@@ -218,6 +219,7 @@ namespace OpenQuant
 				else if (UseStopLoss && imfTick.Price > SLlevel)
 				{
 					SendLimitOrder(OrderSide.Buy, Position.Qty, "Stoploss hit");
+                    OnStopHit();
 				}
 			}
 				// handling of No position
@@ -263,8 +265,22 @@ namespace OpenQuant
 			Send(currOrder);
 		}
 
+        protected void OnStopHit()
+        {
+            DateTime resstartDT = Clock.DateTime.AddMinutes(1440);
+            Console.WriteLine(Clock.DateTime.ToString() + ":" + Instrument.ToString() + " StopLossHit trading paused untill " + resstartDT.ToString());
+            InSession = false;
+            AddReminder(resstartDT);
+        }
 
-		protected override void OnOrderDone(Order order)
+        protected override void OnReminder(DateTime dateTime, object data)
+        {
+            Console.WriteLine(Clock.DateTime.ToString() + ":" + Instrument.ToString() + " trading resumes");
+            InSession = true;
+        }
+
+
+        protected override void OnOrderDone(Order order)
 		{
 			//Util.SaveOrdersCSV(orderFile, order);
 			if (Mode != StrategyMode.Backtest)
@@ -388,6 +404,8 @@ namespace OpenQuant
 
 	}
 }
+
+
 
 
 

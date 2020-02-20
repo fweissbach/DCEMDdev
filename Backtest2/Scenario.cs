@@ -15,19 +15,19 @@ namespace OpenQuant
 		// string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
 
 		string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
-        DateTime startDateTime = 	new DateTime(2019, 10, 2, 3, 0, 0);
-        DateTime endDateTime = 		new DateTime(2019, 12, 29, 5, 0, 0);
+        DateTime startDateTime = 	new DateTime(2019, 9, 30, 07, 00, 00);
+        DateTime endDateTime = 		new DateTime(2020, 2, 20, 11, 00, 00);
 //		DateTime endDateTime = 		new DateTime(2019, 12, 27, 18, 00, 0);
 		
 		long Lambda = 10;
         double Threshold = 0.67;
-        double Cash = 100000;
-        bool UseStopLoss = false;  // IMF based StopLoss
+        double Cash = 50000;
+        bool UseStopLoss = true;  // IMF based StopLoss
         double SLlevel = 20.0; // IMF base stoploss level
 
         // closeMode = 0:  cross of 0 closes the position
         // closeMode = 1:  long:crossFromBelow(envU) and short:crossFromAbove(envL) closes trade
-        int CloseMode = 1;
+        int CloseMode = 0;
 
         public Backtest2(Framework framework)
             : base(framework)
@@ -63,9 +63,10 @@ namespace OpenQuant
 
             // FillOnBar will simulate mid market trading
             // FillOnQuote generates slippage
-            ExecutionSimulator.FillOnBar = true;
+            ExecutionSimulator.FillOnBar =true;
             ExecutionSimulator.FillOnQuote = false;
             ExecutionSimulator.PartialFills = false;
+            ExecutionSimulator.SlippageProvider.Slippage = 0.2/10000.0;
 
            // Set event filter.
            // EventManager.Filter = new IBForexFilter(framework);
@@ -97,6 +98,23 @@ namespace OpenQuant
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

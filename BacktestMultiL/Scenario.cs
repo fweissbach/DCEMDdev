@@ -10,18 +10,18 @@ namespace OpenQuant
 {
     public partial class BacktestMultiL : Scenario
     {
-		
-		// string symbols = "EURUSD,EURCHF,USDJPY,GBPUSD,EURGBP,USDCHF";
-		// string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
 
-		string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
+        // string symbols = "EURUSD,EURCHF,USDJPY,GBPUSD,EURGBP,USDCHF";
+        // string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
+
+        string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
 		DateTime startDateTime = 	new DateTime(2019, 10, 1, 3, 0, 0);
 		DateTime endDateTime = 		new DateTime(2019, 12, 29, 5, 0, 0);
 		//		DateTime endDateTime = 		new DateTime(2019, 12, 27, 18, 00, 0);
 		
 		List<long> Lambda = new List<long> { 9, 10, 11 };
 		double Threshold = 0.67;
-		double Cash = 25000;
+		double Cash = 100000;
 		bool UseStopLoss = false;  // IMF based StopLoss
 		double SLlevel = 20.0; // IMF base stoploss level
 
@@ -43,12 +43,10 @@ namespace OpenQuant
 			foreach (string symbol in symbols.Split(','))
 			{
 				Instrument instrument = InstrumentManager.Instruments[symbol];
-                BarFactory.Add(new ChangeFactoryItem(instrument, 50));
-
-                foreach(long lambda in Lambda)
-                {
-                    BarFactory.Add(new DCBarFactoryItem(instrument, lambda));
-                }
+                BarFactory.Add(new ChangeFactoryItem(instrument, 50)); 
+				
+				foreach(long lambda in Lambda)
+					BarFactory.Add(new DCBarFactoryItem(instrument, lambda));
                 
 				instruments.Add(instrument);
 			}
@@ -84,24 +82,29 @@ namespace OpenQuant
 
 
             // Setup a main Strategy
-            strategy = new DCEMDStrategy(framework, "Multi Lambda");
+            strategy = new Strategy(framework, "Base");
 
             foreach (long lambda in Lambda)
             {
-               
-                strategy.AddStrategy(new DCEMDStrategy(framework, "Lambda:"+lambda.ToString() ));
-                strategy.AddInstruments(instruments);
-                strategy.SetParameter("Envelope", Threshold * lambda);
-                strategy.SetParameter("Lambda", lambda);
-                strategy.SetParameter("Cash", Cash);
-                strategy.SetParameter("CloseMode", CloseMode);
-                strategy.SetParameter("UseStopLoss", UseStopLoss);
-                strategy.SetParameter("SLlevel", SLlevel);
+               	Strategy substrategy = new DCEMDStrategy(framework, "Lambda:"+lambda.ToString());
+				
+                substrategy.AddInstruments(instruments);
+                substrategy.SetParameter("Envelope", Threshold * lambda);
+                substrategy.SetParameter("Lambda", lambda);
+                substrategy.SetParameter("Cash", Cash);
+                substrategy.SetParameter("CloseMode", CloseMode);
+                substrategy.SetParameter("UseStopLoss", UseStopLoss);
+                substrategy.SetParameter("SLlevel", SLlevel);
+				strategy.AddStrategy(substrategy);
             }
 
 
-			StartStrategy(StrategyMode.Backtest);
+			StartStrategy(strategy);    
         }
     }
 }
+
+
+
+
 

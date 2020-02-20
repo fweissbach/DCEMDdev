@@ -58,8 +58,8 @@ namespace OpenQuant
 					InstrumentManager.Add(instrument, true);
 				}
 
-                DateTime datetime1 = new DateTime(2019,09,28);
-				DateTime datetime2 = new DateTime(2019,11,30);
+                DateTime datetime1 = new DateTime(2020,02,12,09,00,00);
+				DateTime datetime2 = new DateTime(2020,02,20,11,00,00);
 
 				//DataSeries dataseriesTest = DataManager.GetDataSeries(instrument, DataObjectType.Quote);
 
@@ -102,6 +102,13 @@ namespace OpenQuant
 
     }
 }
+
+
+
+
+
+
+
 
 
 
