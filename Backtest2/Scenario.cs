@@ -15,7 +15,7 @@ namespace OpenQuant
 		// string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
 
 		string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
-        DateTime startDateTime = 	new DateTime(2019, 9, 30, 07, 00, 00);
+        DateTime startDateTime = 	new DateTime(2020, 2, 3, 07, 00, 00);
         DateTime endDateTime = 		new DateTime(2020, 2, 20, 11, 00, 00);
 //		DateTime endDateTime = 		new DateTime(2019, 12, 27, 18, 00, 0);
 		
@@ -66,7 +66,7 @@ namespace OpenQuant
             ExecutionSimulator.FillOnBar =true;
             ExecutionSimulator.FillOnQuote = false;
             ExecutionSimulator.PartialFills = false;
-            ExecutionSimulator.SlippageProvider.Slippage = 0.2/10000.0;
+            ExecutionSimulator.SlippageProvider.Slippage = 0.25/10000.0;
 
            // Set event filter.
            // EventManager.Filter = new IBForexFilter(framework);

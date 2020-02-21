@@ -32,6 +32,9 @@ namespace OpenQuant
 		[Parameter]
 		public bool InSession = true;
 
+        [Parameter]
+        public bool ShutDownMode = false;
+
 		[Parameter]
 		public double Lambda = 10.0;
 
@@ -225,11 +228,11 @@ namespace OpenQuant
 				// handling of No position
 			else
 			{
-				if (lowCross == Cross.Above)
+				if (lowCross == Cross.Above && !ShutDownMode)
 				{
 					SendLimitOrder(OrderSide.Buy, PositionLimit, "opening trade");
 				}
-				else if (highCross == Cross.Below)
+				else if (highCross == Cross.Below && !ShutDownMode)
 				{
 					SendLimitOrder(OrderSide.Sell, PositionLimit, "opening trade");
 				}
