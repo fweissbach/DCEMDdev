@@ -24,8 +24,10 @@ namespace OpenQuant
 		[Parameter]
 		public bool UseStopLoss = false;
 
-        
-		[Parameter]
+        [Parameter]
+        private OrderType OrderType = OrderType.Limit;
+
+        [Parameter]
 		public bool OrderLockedOverride = false;
 		// To avoid duplicate trades whilean order has not been confirmed yet
 
@@ -195,15 +197,15 @@ namespace OpenQuant
 			{
 				if (zeroCross == Cross.Above && CloseMode == 0)
 				{
-					SendLimitOrder(OrderSide.Sell, Position.Qty, "closing@zero trade");
+					SendOrder(OrderSide.Sell, Position.Qty, "closing@zero trade");
 				}
 				else if (highCross == Cross.Above && CloseMode == 1)
 				{
-					SendLimitOrder(OrderSide.Sell, Position.Qty, "closing@envU trade");
+					SendOrder(OrderSide.Sell, Position.Qty, "closing@envU trade");
 				}
 				else if (UseStopLoss && imfTick.Price < -SLlevel)
 				{
-					SendLimitOrder(OrderSide.Sell, Position.Qty, "Stoploss hit");
+					SendOrder(OrderSide.Sell, Position.Qty, "Stoploss hit");
                     OnStopHit();
                 }
 			}
@@ -213,15 +215,15 @@ namespace OpenQuant
 			{
 				if (zeroCross == Cross.Below && CloseMode == 0)
 				{
-					SendLimitOrder(OrderSide.Buy, Position.Qty, "closing@zero trade");
+					SendOrder(OrderSide.Buy, Position.Qty, "closing@zero trade");
 				}
 				else if (lowCross == Cross.Below && CloseMode == 1)
 				{
-					SendLimitOrder(OrderSide.Buy, Position.Qty, "closing@envL trade");
+					SendOrder(OrderSide.Buy, Position.Qty, "closing@envL trade");
 				}
 				else if (UseStopLoss && imfTick.Price > SLlevel)
 				{
-					SendLimitOrder(OrderSide.Buy, Position.Qty, "Stoploss hit");
+					SendOrder(OrderSide.Buy, Position.Qty, "Stoploss hit");
                     OnStopHit();
 				}
 			}
@@ -230,11 +232,11 @@ namespace OpenQuant
 			{
 				if (lowCross == Cross.Above && !ShutDownMode)
 				{
-					SendLimitOrder(OrderSide.Buy, PositionLimit, "opening trade");
+					SendOrder(OrderSide.Buy, PositionLimit, "opening trade");
 				}
 				else if (highCross == Cross.Below && !ShutDownMode)
 				{
-					SendLimitOrder(OrderSide.Sell, PositionLimit, "opening trade");
+					SendOrder(OrderSide.Sell, PositionLimit, "opening trade");
 				}
 			}
 		}
@@ -251,22 +253,30 @@ namespace OpenQuant
                 return true;
         }
 
-		protected void SendLimitOrder(OrderSide side,double qty, String text)
-		{
+        protected void SendOrder(OrderSide side, double qty, String text)
+        {
+            if (OrderType == OrderType.Limit)
+            {
+                double ItmLimitFactor = 1.0 + ItmLimitBPS / 10000.0;
+                if (side == OrderSide.Buy)
+                    currOrder = BuyLimitOrder(Instrument, qty, Math.Round(lastQuotePrice * ItmLimitFactor, (int)Instrument.TickSize), text);
+                else
+                    currOrder = SellLimitOrder(Instrument, qty, Math.Round(lastQuotePrice / ItmLimitFactor, (int)Instrument.TickSize), text);
 
-			double ItmLimitFactor = 1.0 + ItmLimitBPS / 10000.0;
-			if (side == OrderSide.Buy)
-				currOrder = BuyLimitOrder(Instrument, qty, Math.Round(lastQuotePrice * ItmLimitFactor,(int)Instrument.TickSize), text);
-			else
-                currOrder = SellLimitOrder(Instrument, qty, Math.Round(lastQuotePrice / ItmLimitFactor, (int)Instrument.TickSize), text);
-
-            currOrder.TimeInForce = TimeInForce.FOK;
-
+                currOrder.TimeInForce = TimeInForce.FOK;
+            }
+            else if (OrderType == OrderType.Market)
+            {
+                if (side == OrderSide.Buy)
+                    currOrder = BuyOrder(Instrument, qty, text);
+                else
+                    currOrder = SellOrder(Instrument, qty, text);
+            }
             // Avoiding partial fills (Currenex documentation); 
             currOrder.MinQty = currOrder.Qty;
 
-			Send(currOrder);
-		}
+            Send(currOrder);
+        }
 
         protected void OnStopHit()
         {
