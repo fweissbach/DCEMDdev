@@ -188,13 +188,26 @@ namespace OpenQuant
             // Compact trade logic
             // if there is a long/short postion then close it if the opposite envelope or 0 is crossed
             // if there is no position then open it if the envelope is crosses
-            Cross highCross = imf.Crosses(envU, index);
-			Cross lowCross = imf.Crosses(envL, index);
-			Cross zeroCross = imf.Crosses(0.0, index);
+            //Cross highCross = imf.Crosses(envU, index);
+            //Cross lowCross = imf.Crosses(envL, index);
+            //Cross zeroCross = imf.Crosses(0.0, index);
 
+            Cross highCross = Cross.None;
+            Cross lowCross = Cross.None;
+            Cross zeroCross = Cross.None;
 
-			// handling of Long position
-			if (HasLongPosition())
+            if (imf.Last > envU)
+                highCross = Cross.Above;
+            else if (imf.Last < envL)
+                lowCross = Cross.Below;
+
+            if (imf.Last > 0.0)
+                zeroCross = Cross.Above;
+            else if (imf.Last < 0)
+                zeroCross = Cross.Below;
+
+            // handling of Long position
+            if (HasLongPosition())
 			{
 				if (zeroCross == Cross.Above && CloseMode == 0)
 				{
@@ -231,11 +244,11 @@ namespace OpenQuant
 				// handling of No position
 			else
 			{
-				if (lowCross == Cross.Above && !ShutDownMode)
+				if (lowCross == Cross.Below && !ShutDownMode)
 				{
 					SendOrder(OrderSide.Buy, PositionLimit, "opening trade");
 				}
-				else if (highCross == Cross.Below && !ShutDownMode)
+				else if (highCross == Cross.Above && !ShutDownMode)
 				{
 					SendOrder(OrderSide.Sell, PositionLimit, "opening trade");
 				}
