@@ -63,10 +63,10 @@ namespace OpenQuant
 
             // FillOnBar will simulate mid market trading
             // FillOnQuote generates slippage
-            ExecutionSimulator.FillOnBar =true;
-            ExecutionSimulator.FillOnQuote = false;
+            ExecutionSimulator.FillOnBar =false;
+            ExecutionSimulator.FillOnQuote = true;
             ExecutionSimulator.PartialFills = false;
-            ExecutionSimulator.SlippageProvider.Slippage = 0.25/10000.0;
+           // ExecutionSimulator.SlippageProvider.Slippage = 0.20/10000.0;
 
            // Set event filter.
            // EventManager.Filter = new IBForexFilter(framework);
@@ -92,12 +92,16 @@ namespace OpenQuant
             strategy.SetParameter("CloseMode", CloseMode);
             strategy.SetParameter("UseStopLoss", UseStopLoss);
             strategy.SetParameter("SLlevel", SLlevel);
+			strategy.SetParameter("ItmLimitBPS", -0.9);
 
             StartStrategy(StrategyMode.Backtest);
         }
     }
 
 }
+
+
+
 
 
 

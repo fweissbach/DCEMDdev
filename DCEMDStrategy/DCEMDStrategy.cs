@@ -17,6 +17,7 @@ namespace OpenQuant
 		private IMFPred imfPred;
         private Order currOrder;
 		private string orderFile, orderSession;
+        private long timeOffset = 0;
 		public byte BaseCcy = CurrencyId.USD;
 
 		//private bool Locked;
@@ -263,7 +264,10 @@ namespace OpenQuant
                 else
                     currOrder = SellLimitOrder(Instrument, qty, Math.Round(lastQuotePrice / ItmLimitFactor, (int)Instrument.TickSize), text);
 
-                currOrder.TimeInForce = TimeInForce.FOK;
+                //currOrder.TimeInForce = TimeInForce.FOK;
+                currOrder.TimeInForce = TimeInForce.GTC;
+                currOrder.ExpireTime = Clock.DateTime.AddSeconds(5).AddTicks(timeOffset);
+
             }
             else if (OrderType == OrderType.Market)
             {
@@ -304,8 +308,10 @@ namespace OpenQuant
 
 		protected override void OnExecutionReport(ExecutionReport report)
 		{
-			if (Mode == StrategyMode.Live)
-				report.Commission = ExecutionSimulator.CommissionProvider.GetCommission(report);
+            timeOffset = report.DateTime.Ticks - Clock.DateTime.Ticks;
+
+            if (Mode == StrategyMode.Live)
+                report.Commission = ExecutionSimulator.CommissionProvider.GetCommission(report);            
 		}
 
 
@@ -329,6 +335,7 @@ namespace OpenQuant
 			
 			base.OnFill(fill);
 		}
+
 
 
 		private void AddGroups()
