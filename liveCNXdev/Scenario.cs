@@ -54,6 +54,7 @@ namespace OpenQuant
             strategy.ExecutionProvider = provider as IExecutionProvider;
 
             AccountDataSnapshot accData = AccountDataManager.GetSnapshot(4, 4);
+			Console.WriteLine(accData.ToString());
 
 
             CNXCommission cnxCommission = new CNXCommission();
@@ -77,6 +78,8 @@ namespace OpenQuant
             strategy.SetParameter("CloseMode", CloseMode);
             strategy.SetParameter("UseStopLoss", UseStopLoss);
             strategy.SetParameter("SLlevel", SLlevel);
+			strategy.SetParameter("ItmLimitBPS", 0.15);
+			
 
             // Live stage
             Console.WriteLine("Run in Live mode.");
@@ -85,6 +88,7 @@ namespace OpenQuant
         }
     }
 }
+
 
 
 

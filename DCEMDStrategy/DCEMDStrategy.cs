@@ -123,9 +123,10 @@ namespace OpenQuant
 					if (Bars.Count >= NrWarmup)
 					{
 						Tick tick = new Tick(bar.CloseDateTime, 0, instrument.Id, bar.Close, 0);
-						lastImfPrice = imfPred.PredictDC(tick);
+                            lastImfPrice = imfPred.PredictDC(tick);
+                            //lastImfPrice = imfPred.PredictMLE(tick);
 
-						Tick imfTick = new Tick(tick.DateTime, 0, instrument.Id, lastImfPrice, 0);
+                            Tick imfTick = new Tick(tick.DateTime, 0, instrument.Id, lastImfPrice, 0);
 						OnIMFTick(imfTick);
 					}
 					else
@@ -297,7 +298,7 @@ namespace OpenQuant
 
         protected void OnStopHit()
         {
-            DateTime resstartDT = Clock.DateTime.AddMinutes(1440);
+            DateTime resstartDT = Clock.DateTime.AddMinutes(240);
             Console.WriteLine(Clock.DateTime.ToString() + ":" + Instrument.ToString() + " StopLossHit trading paused untill " + resstartDT.ToString());
             InSession = false;
             AddReminder(resstartDT);

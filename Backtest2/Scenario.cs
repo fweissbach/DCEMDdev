@@ -23,7 +23,7 @@ namespace OpenQuant
         double Threshold = 0.67;
         double Cash = 50000;
         bool UseStopLoss = true;  // IMF based StopLoss
-        double SLlevel = 20.0; // IMF base stoploss level
+        double SLlevel = 15.0; // IMF base stoploss level
 
         // closeMode = 0:  cross of 0 closes the position
         // closeMode = 1:  long:crossFromBelow(envU) and short:crossFromAbove(envL) closes trade
@@ -100,6 +100,7 @@ namespace OpenQuant
     }
 
 }
+
 
 
 
