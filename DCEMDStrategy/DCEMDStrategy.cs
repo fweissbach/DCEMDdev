@@ -45,9 +45,15 @@ namespace OpenQuant
 		public double ItmLimitBPS = 0.25;
 
 		[Parameter]
-		public double SLlevel = 105.0;
+		public double SLlevel = 20.0;
 
-		[Parameter]
+        [Parameter]
+        public int SLTimeoutMinutes = 240;
+
+        [Parameter]
+        public int GFSorderSeconds = 2;
+
+        [Parameter]
 		public double PositionLimit;
 
 		[Parameter]
@@ -279,8 +285,8 @@ namespace OpenQuant
                     currOrder = SellLimitOrder(Instrument, qty, Math.Round(lastQuotePrice / ItmLimitFactor, (int)Instrument.TickSize), text);
 
                 //currOrder.TimeInForce = TimeInForce.FOK;
-                currOrder.TimeInForce = TimeInForce.GTC;
-                currOrder.ExpireTime = Clock.DateTime.AddSeconds(5).AddTicks(timeOffset);
+                currOrder.TimeInForce = TimeInForce.GFS;
+                currOrder.ExpireTime = new DateTime(0).AddSeconds(GFSorderSeconds);
 
             }
             else if (OrderType == OrderType.Market)
@@ -298,7 +304,7 @@ namespace OpenQuant
 
         protected void OnStopHit()
         {
-            DateTime resstartDT = Clock.DateTime.AddMinutes(240);
+            DateTime resstartDT = Clock.DateTime.AddMinutes(SLTimeoutMinutes);
             Console.WriteLine(Clock.DateTime.ToString() + ":" + Instrument.ToString() + " StopLossHit trading paused untill " + resstartDT.ToString());
             InSession = false;
             AddReminder(resstartDT);

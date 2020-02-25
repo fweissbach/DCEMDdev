@@ -8,7 +8,7 @@ namespace OpenQuant
 	{
         string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
 
-        long Lambda = 10;
+        long Lambda = 5;
 		double Threshold = 0.67;
 		double Cash = 50000; // EUR 500k position size and deposit
 		bool UseStopLoss = true;  // IMF based StopLoss
@@ -88,6 +88,7 @@ namespace OpenQuant
 		}
 	}
 }
+
 
 
 
