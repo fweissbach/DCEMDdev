@@ -42,12 +42,18 @@ namespace OpenQuant
 		public double Lambda = 10.0;
 
 		[Parameter]
-		public double ItmLimitBPS = 0.25;
+		public double ItmLimitBPS = 0.15;
 
-		[Parameter]
-		public double SLlevel = 105.0;
+        [Parameter]
+        public double SLlevel = 20.0;
 
-		[Parameter]
+        [Parameter]
+        public int SLTimeoutMinutes = 240;
+
+        [Parameter]
+        public int GFSorderSeconds = 10;
+
+        [Parameter]
 		public double PositionLimit;
 
 		[Parameter]
@@ -279,8 +285,8 @@ namespace OpenQuant
                     currOrder = SellLimitOrder(Instrument, qty, Math.Round(lastQuotePrice / ItmLimitFactor, (int)Instrument.TickSize), text);
 
                 //currOrder.TimeInForce = TimeInForce.FOK;
-                currOrder.TimeInForce = TimeInForce.GTC;
-                currOrder.ExpireTime = Clock.DateTime.AddSeconds(5).AddTicks(timeOffset);
+                currOrder.TimeInForce = TimeInForce.GFS;
+                currOrder.ExpireTime = new DateTime(0).AddSeconds(GFSorderSeconds);
 
             }
             else if (OrderType == OrderType.Market)
@@ -438,6 +444,7 @@ namespace OpenQuant
 
 	}
 }
+
 
 
 
