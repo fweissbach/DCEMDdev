@@ -19,3 +19,8 @@ C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\
 C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\obj\Debug\liveCNXdev.csproj.CopyComplete
 C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\obj\Debug\liveCNXdev.exe
 C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\obj\Debug\liveCNXdev.pdb
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\bin\Debug\QuickFix.FIX42.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\bin\Debug\QuickFix.FIX40.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\bin\Debug\QuickFix.FIX41.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\bin\Debug\QuickFix.FIX43.dll
+C:\Users\n.lammertsvanbueren\Documents\OpenQuant 2014\DCEMD Solutions\DCEMD TRZ\liveCNXdev\bin\Debug\QuickFix.FIX44.dll

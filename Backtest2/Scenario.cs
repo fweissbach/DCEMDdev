@@ -66,7 +66,7 @@ namespace OpenQuant
             ExecutionSimulator.FillOnBar =true;
             ExecutionSimulator.FillOnQuote = false;
 			ExecutionSimulator.PartialFills = false;
-			ExecutionSimulator.FillAtLimitPrice =true;
+			ExecutionSimulator.FillAtLimitPrice =false;
            // ExecutionSimulator.SlippageProvider.Slippage = 0.20/10000.0;
 
            // Set event filter.
@@ -100,6 +100,7 @@ namespace OpenQuant
     }
 
 }
+
 
 
 
