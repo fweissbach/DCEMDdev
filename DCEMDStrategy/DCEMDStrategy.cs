@@ -203,9 +203,9 @@ namespace OpenQuant
             Cross lowCross = Cross.None;
             Cross zeroCross = Cross.None;
 
-            if (imf.Last > envU)
+            if (imf.Last >= envU && imf.Last <= Lambda)
                 highCross = Cross.Above;
-            else if (imf.Last < envL)
+            else if (imf.Last <= envL && imf.Last >= -Lambda)
                 lowCross = Cross.Below;
 
             if (imf.Last > 0.0)

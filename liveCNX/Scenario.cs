@@ -8,9 +8,9 @@ namespace OpenQuant
 	{
         string symbols = "AUDJPY,AUDUSD,EURCHF,EURGBP,EURJPY,EURNOK,EURSEK,EURUSD,GBPUSD,NZDUSD,USDCAD,USDCHF,USDJPY";
 
-        long Lambda = 5;
+        long Lambda = 10;
 		double Threshold = 0.67;
-		double Cash = 50000; // EUR 500k position size and deposit
+		double Cash = 25000; // EUR 500k position size and deposit
 		bool UseStopLoss = true;  // IMF based StopLoss
 		double SLlevel = 20.0; // IMF base stoploss level
 
@@ -80,6 +80,7 @@ namespace OpenQuant
 			strategy.SetParameter("CloseMode", CloseMode);
 			strategy.SetParameter("UseStopLoss", UseStopLoss);
 			strategy.SetParameter("SLlevel", SLlevel);
+			strategy.SetParameter("ItmLimitBPS", 0.15);
 
             // Live stage         
 			StartStrategy(StrategyMode.Live);
@@ -88,6 +89,7 @@ namespace OpenQuant
 		}
 	}
 }
+
 
 
 
